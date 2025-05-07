@@ -4,7 +4,7 @@ public class BonusService {
     final static int BONUS= 5000;
 
     public long calculate (long amount, boolean registered) {
-
+        //Исправленная версия
         long bonus;
 
         if(registered) {
