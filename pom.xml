@@ -17,6 +17,8 @@
         <junit.jupiter.version>5.12.2</junit.jupiter.version>
         <!-- Версия Surefire Plugin -->
         <surefire.plugin.version>3.5.3</surefire.plugin.version>
+        <!-- Версия Checkstyle Plugin -->
+        <checkstyle.plugin.version>3.2.1</checkstyle.plugin.version>
     </properties>
 
     <dependencies>
@@ -43,6 +45,31 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire.plugin.version}</version>
+            </plugin>
+
+            <!-- Maven Checkstyle Plugin: статический анализ стиля кода -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${checkstyle.plugin.version}</version>
+                <configuration>
+                    <checkstyleRules>
+                        <module name="Checker">
+                            <module name="TreeWalker">
+                                <module name="LocalVariableName"/>
+                            </module>
+                        </module>
+                    </checkstyleRules>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

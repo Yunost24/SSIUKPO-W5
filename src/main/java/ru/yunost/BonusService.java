@@ -5,7 +5,7 @@ public class BonusService {
 
     public long calculate (long amount, boolean registered) {
 
-        long bonus;
+        long Bonus;
 
         if(registered) {
             bonus = (int) (0.10 * amount);
